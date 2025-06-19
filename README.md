@@ -1,5 +1,9 @@
 # Aplikacja webowa umożliwiająca proste gry 1v1 za pieniądze
 
+## Demo
+
+Nagrane demo projektu znajduje się pod linkiem: https://drive.google.com/file/d/1WE7imq56K9nE9YbwchFbCZknVlVcpzzf/view?usp=drive_link
+
 ## Opis projektu
 
 Oferuje graczom pojedynki 1v1 w gry typu “Battleships” przez internet. Gracze wpłacają opłatę przed każdą grą, wygrany dostaje 75% sumy wpłaconej przez obu graczy, a reszta zostaje właścicielom platformy. Aplikacja umożliwia zarządzanie kontami graczy, rejestrowanie transakcji finansowych oraz wyników pojedynków, a także generowanie rankingów i statystyk.
