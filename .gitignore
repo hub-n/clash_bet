@@ -1,0 +1,11 @@
+# node
+node_modules
+.pnpm
+# env
+.env*
+# build artefacts
+dist
+.next
+coverage
+# docker
+pgdata

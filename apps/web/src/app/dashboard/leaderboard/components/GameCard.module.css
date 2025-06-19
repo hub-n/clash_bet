@@ -1,0 +1,56 @@
+.cardLink {
+  max-width: 150px;      /* Max width to limit card growth */
+  min-width: 120px;     
+  width: 100%;           /* Allow to shrink or grow up to max-width */
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  border-radius: var(--radius-lg);
+}
+
+.cardLink:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px hsla(213, 50%, 30%, 0.3);
+}
+
+.cardLink:hover:not(.selected) .card {
+  border-color: var(--color-accent-blue);
+}
+
+.selected {
+  border: 2px solid var(--color-accent-blue);
+  background-color: hsla(213, 100%, 30%, 0.2);
+}
+
+.card {
+  background-color: hsla(0, 0%, 10%, 0.85);
+  border: 2px solid hsla(0, 0%, 20%, 0.7);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content */
+  text-align: center;
+  height: 100%; /* Ensures full height */
+  box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.3);
+  transition: border-color 0.2s ease-out;
+  overflow-wrap: break-word;  /* Ensures long words break */
+  word-break: break-word;     /* Breaks words when necessary */
+}
+
+.cardIcon {
+  font-size: 2rem;
+  margin-bottom: var(--space-xs);
+}
+
+.cardTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-default);
+  margin-bottom: var(--space-xs);
+  word-wrap: break-word; /* Allows the title to wrap */
+  text-align: center;
+}

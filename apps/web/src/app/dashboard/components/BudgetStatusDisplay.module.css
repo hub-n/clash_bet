@@ -1,0 +1,28 @@
+.budgetStatusPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;   /* This creates the pill shape. */
+  color: var(--color-text-default);
+  background-color: hsla(0, 0%, 15%, 0.7);
+  border: 1px solid hsla(0,0%,25%,0.5);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  font-size: 0.9rem;
+  white-space: nowrap; /* Prevents the balance from wrapping if it's long */
+  pointer-events: auto;
+}
+
+.balanceAmount {
+  font-weight: 600;
+}
+
+.loadingText {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.errorText {
+  color: red;
+  font-size: 0.9rem;
+}

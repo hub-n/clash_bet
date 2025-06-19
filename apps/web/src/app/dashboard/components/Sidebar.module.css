@@ -1,0 +1,139 @@
+.sidebar {
+  width: 80px;
+  background-color: hsla(0, 20%, 10%, 0.9);
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-right: 1px solid hsla(0, 50%, 30%, 0.2);
+  backdrop-filter: blur(8px);
+  padding: var(--space-md) 0;
+  transition: width 0.3s ease-in-out;
+  overflow-x: hidden;
+}
+
+.sidebar:hover {
+  width: 260px;
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Ensure header takes the full width of the sidebar */
+  box-sizing: border-box;
+  margin-bottom: var(--space-lg);
+
+  flex-direction: column;
+  padding: 0 var(--space-xs);
+}
+
+.sidebar:hover .header {
+  /* Expanded state: items arranged horizontally */
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 var(--space-md);
+}
+
+.logoArea {
+  display: flex;
+  justify-content: flex-start; /* This means the logoText starts at the beginning of logoArea's content box */
+  width: 100%;
+  padding-left: 17px; /* <<< THIS IS THE VALUE TO TUNE */
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+.sidebar:hover .logoArea {
+  padding-left: 0;
+}
+
+.logoText { /* This is the Next.js Link component */
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-default);
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* --- Navigation --- */
+.navigation {
+  /* Optional: if nav items can exceed height */
+  /* flex-grow: 1; */
+  /* overflow-y: auto; */
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation li {
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center; /* Vertically align icon and text */
+  justify-content: flex-start;
+  margin: var(--space-xs) var(--space-sm);
+  padding-left: 16px;
+  padding-right: 16px;
+  /* CRITICAL: Ensure padding-top and padding-bottom are identical and DO NOT change on hover */
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              padding-right 0.3s ease-in-out;
+}
+
+.sidebar:hover .navLink {
+  padding-right: var(--space-lg);
+}
+
+.navLink:hover {
+  background-color: var(--color-accent-red);
+  color: var(--color-text-on-accent-bg);
+}
+
+.navLinkActive {
+  background-color: var(--color-accent-red);
+  color: var(--color-text-on-accent-bg);
+  font-weight: var(--font-weight-bold);
+}
+
+.navIcon {
+  font-size: 1.2em;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-right: 0;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: margin-right 0.3s ease-in-out;
+}
+
+.sidebar:hover .navIcon {
+  margin-right: var(--space-md);
+}
+
+.navText {
+  opacity: 1;
+  transition: opacity 0.2s ease 0.1s;
+  line-height: inherit; /* Inherit from .navLink */
+}

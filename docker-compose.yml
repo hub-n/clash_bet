@@ -1,0 +1,27 @@
+version: "3.9"
+
+###########################
+# Services
+###########################
+services:
+  # PostgreSQL database (immediately usable for local dev)
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-dev}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dev}
+      POSTGRES_DB: ${POSTGRES_DB:-devdb}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # NestJS API
+  # ...
+
+###########################
+# Volumes
+###########################
+volumes:
+  pgdata:

@@ -1,0 +1,290 @@
+/* --- General Container --- */
+.walletContainer {
+  background-color: var(--card-background-color); /* Use card background */
+  border: var(--card-border);                     /* Use card border style */
+  border-radius: var(--radius-lg);             /* Use large radius */
+  box-shadow: none;                                /* Keep flat */
+  padding: var(--space-md) var(--space-lg);       /* Use spacing variables */
+  margin: var(--space-lg) auto;                   /* Center with spacing */
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);                           /* Spacing between elements */
+  color: var(--color-text-default);               /* Default text */
+}
+
+.pageTitle {
+  font-size: var(--font-size-xl); /* Use XL font size */
+  font-weight: var(--font-weight-semibold);     /* Use semibold weight */
+  color: var(--color-text-default); /* Keep slightly brighter than secondary */
+  text-align: center;
+  margin-bottom: 0;
+  /* Use color part of card-border for a thinner separator */
+  border-bottom: 1px solid var(--color-glow-edge);
+  padding-bottom: 0.5rem;              /* Use small spacing */
+}
+
+/* --- Balance Section --- */
+.balanceSection {
+  background-color: var(--color-glow-edge); /* Consistent card bg */
+  padding: 0.5rem var(--space-md);       /* Adjusted padding */
+  border-radius: var(--radius-md);             /* Medium radius */
+  text-align: center;
+  margin-bottom: 0;
+   /* Use color part of card-border for consistency */
+  border: 1px solid var(--color-glow-edge);
+}
+
+.balanceLabel {
+  font-size: var(--font-size-sm);               /* Small font size */
+  color: var(--color-text-secondary);           /* Secondary text color */
+  margin-bottom: var(--space-xs);             /* Extra small spacing */
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.balanceAmount {
+  font-size: 2.8rem; /* Keep large specific size for impact */
+  font-weight: var(--font-weight-bold);         /* Bold weight */
+  color: var(--color-accent-blue);              /* Use Blue accent */
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* --- Actions Container --- */
+.actionsContainer {
+  display: flex;
+  gap: var(--space-sm);                         /* Small gap */
+  justify-content: center;
+  padding-top: var(--space-md);                 /* Medium top padding */
+   /* Use color part of card-border */
+  border-top: 1px solid var(--color-glow-edge);
+}
+
+/* --- General Button Styling --- */
+.actionButton {
+  padding: 0.8rem var(--space-md);              /* Custom top/bottom, variable sides */
+  font-size: var(--font-size-sm);               /* Small font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  border: 1px solid transparent;                /* Start transparent */
+  border-radius: var(--radius-md);             /* Medium radius */
+  cursor: pointer;
+  min-width: 150px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* Use transition variables */
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-transform),
+    opacity var(--transition-fast);
+  box-shadow: var(--shadow-button);            /* Apply button shadow */
+}
+
+.actionButton:hover {
+  opacity: 0.95;
+  box-shadow: var(--shadow-button-hover);       /* Apply hover shadow */
+}
+
+.actionButton:active {
+  transform: scale(0.97);
+  opacity: 1;
+  box-shadow: var(--shadow-button-active);      /* Apply active shadow */
+}
+
+/* --- Specific Action Buttons --- */
+.depositButton {
+  background-color: var(--color-accent-red);       /* Red accent */
+  color: var(--color-text-on-accent-bg);        /* Text for accents */
+  border-color: var(--color-accent-red);          /* Match border */
+}
+.depositButton:hover {
+  background-color: var(--color-accent-red-hover); /* Red hover */
+  border-color: var(--color-accent-red-hover);   /* Match hover border */
+}
+
+.withdrawButton {
+  background-color: var(--color-accent-blue);      /* Blue accent */
+  color: var(--color-text-on-accent-bg);       /* Text for accents */
+  border-color: var(--color-accent-blue);         /* Match border */
+}
+.withdrawButton:hover {
+  background-color: var(--color-accent-blue-hover);/* Blue hover */
+  border-color: var(--color-accent-blue-hover);  /* Match hover border */
+}
+
+/* --- Transaction Form --- */
+.transactionFormContainer {
+  margin-top: var(--space-md);                  /* Medium top margin */
+  padding: var(--space-md);                     /* Medium padding */
+   /* Use color part of card-border */
+  border: 1px solid hsla(0, 0%, 20%, 0.7);
+  border-radius: var(--radius-md);             /* Medium radius */
+  background-color: var(--card-background-color); /* Consistent card bg */
+}
+
+.formTitle {
+  font-size: var(--font-size-lg);               /* Large font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  margin-bottom: var(--space-md);               /* Medium bottom margin */
+  color: var(--color-text-default);             /* Default text */
+  text-align: center;
+}
+
+.formInfo {
+    font-size: var(--font-size-sm);               /* Small font size */
+    color: var(--color-text-secondary);           /* Secondary text */
+    margin-bottom: var(--space-sm);               /* Small bottom margin */
+    font-weight: var(--font-weight-medium);       /* Medium weight */
+    text-align: center;
+    border-bottom: 1px dashed hsla(0, 0%, 30%, 0.8); /* Muted dashed border */
+    padding-bottom: var(--space-sm);              /* Small bottom padding */
+}
+
+.formGroup {
+  margin-bottom: var(--space-sm);               /* Small bottom margin */
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: var(--space-xs);             /* Extra small bottom margin */
+  font-size: var(--font-size-sm);               /* Small font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  color: var(--color-text-secondary);           /* Secondary text */
+  text-transform: capitalize;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem var(--space-sm);             /* Custom top/bottom, variable sides */
+  /* Slightly darker than card bg for subtle contrast */
+  background-color: hsla(0, 0%, 8%, 0.85);
+  border: 1px solid hsla(0, 0%, 30%, 0.8);      /* Muted border */
+  border-radius: var(--radius-sm);             /* Small radius */
+  font-size: var(--font-size-base);             /* Base font size */
+  color: var(--color-text-default);             /* Default text */
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.formInput::placeholder {
+    color: hsla(0, 0%, 50%, 0.8);               /* Muted placeholder */
+}
+
+.formInput:focus {
+  border-color: var(--color-accent-blue);         /* Blue accent on focus */
+  outline: 0;
+   /* Using HSL derived from blue accent for focus ring */
+  box-shadow: 0 0 0 3px hsla(213, 100%, 60%, 0.25);
+}
+
+/* Style row for expiry/cvc */
+.formRow {
+    display: flex;
+    gap: var(--space-sm);                         /* Small gap */
+}
+.formRow .formGroup {
+    flex: 1;
+}
+
+.securityNotice {
+    font-size: var(--font-size-sm);               /* Small font size */
+    color: var(--color-text-default);             /* Default text */
+    /* Use accent red with low alpha for background */
+    background-color: hsla(0, 79%, 59%, 0.15);
+    border: 1px solid var(--color-accent-red);      /* Red accent border */
+    padding: var(--space-xs) var(--space-sm);       /* Small padding */
+    border-radius: var(--radius-sm);             /* Small radius */
+    margin-top: var(--space-xs);                  /* Extra small top margin */
+    margin-bottom: var(--space-md);               /* Medium bottom margin */
+}
+
+.formError {
+  color: var(--color-accent-red);                 /* Red accent for errors */
+  font-size: var(--font-size-sm);               /* Small font size */
+  margin-top: 0.3rem;                           /* Keep small specific margin */
+  margin-bottom: var(--space-sm);               /* Small bottom margin */
+  font-weight: var(--font-weight-medium);       /* Medium weight */
+}
+
+.formActions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);                         /* Small gap */
+  margin-top: var(--space-md);                  /* Medium top margin */
+}
+
+/* Re-use .depositButton style for submit */
+.submitButton {
+  /* Inherits structure from .actionButton */
+  background-color: var(--color-accent-red);
+  color: var(--color-text-on-accent-bg);
+  border-color: var(--color-accent-red);
+}
+.submitButton:hover {
+  background-color: var(--color-accent-red-hover);
+  border-color: var(--color-accent-red-hover);
+}
+
+/* Define styles for cancel button using muted colors */
+.cancelButton {
+ /* Inherits structure from .actionButton */
+  background-color: hsla(0, 0%, 25%, 1);        /* Dark grey background */
+  color: var(--color-text-secondary);           /* Secondary text */
+  border-color: hsla(0, 0%, 33%, 1);            /* Slightly lighter border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);        /* Less prominent shadow */
+}
+.cancelButton:hover {
+  background-color: hsla(0, 0%, 33%, 1);        /* Lighter grey on hover */
+  border-color: hsla(0, 0%, 40%, 1);            /* Even lighter border */
+  color: var(--color-text-default);             /* Default text on hover */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+.cancelButton:active {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);       /* Subtle active shadow */
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 600px) {
+  .walletContainer {
+     padding: var(--space-sm) var(--space-md);      /* Adjusted padding */
+     margin: var(--space-sm) auto;                /* Adjusted margin */
+     max-width: 100%;
+     gap: var(--space-sm);                        /* Smaller gap */
+     border-radius: 0;                            /* Full width look */
+     border-left: none;
+     border-right: none;
+  }
+  .pageTitle {
+      font-size: var(--font-size-lg);              /* Large font size */
+      padding-bottom: var(--space-xs);             /* Smaller padding */
+  }
+  .balanceAmount {
+      font-size: 2.4rem;                         /* Slightly smaller balance */
+  }
+  .actionsContainer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-xs);                      /* Extra small gap */
+      padding-top: var(--space-sm);              /* Smaller padding */
+  }
+  .actionButton {
+      min-width: auto;
+      width: 100%;
+  }
+  .transactionFormContainer {
+      padding: var(--space-sm);                  /* Smaller padding */
+  }
+  .formRow {
+      flex-direction: column;
+      gap: 0;
+  }
+  .formRow .formGroup {
+      margin-bottom: var(--space-sm);
+  }
+}

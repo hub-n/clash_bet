@@ -1,0 +1,138 @@
+.joinFormContainer {
+  background-color: hsla(0, 0%, 8%, 0.8);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 480px; /* Slightly wider to accommodate more fields if needed */
+  box-shadow: 0 10px 30px hsla(0, 0%, 0%, 0.4);
+  backdrop-filter: blur(5px);
+  border: 1px solid hsla(0, 50%, 30%, 0.3);
+  z-index: 1;
+}
+
+.formTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-default);
+  text-align: center;
+  margin-bottom: var(--space-xs);
+}
+
+.formSubtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.inputField {
+  background-color: hsla(0, 0%, 12%, 0.7);
+  color: var(--color-text-default);
+  border: 1px solid hsla(0, 0%, 25%, 0.5);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.inputField::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+.inputField:focus {
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 3px hsla(213, 100%, 65%, 0.2);
+}
+
+.buttonBase {
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-transform),
+              box-shadow var(--transition-fast);
+  border: 2px solid transparent;
+  letter-spacing: 0.015em;
+  text-align: center;
+}
+
+.submitButton {
+  composes: buttonBase;
+  background-color: var(--color-accent-blue);
+  color: var(--color-text-on-accent-bg);
+  border-color: var(--color-accent-blue);
+  box-shadow: var(--shadow-button);
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+.submitButton:hover {
+  background-color: var(--color-accent-blue-hover);
+  border-color: var(--color-accent-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.submitButton:active {
+  transform: translateY(0px);
+  box-shadow: var(--shadow-button-active);
+}
+
+.linksContainer {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+.formLinkStrong { /* Reused for the "Login" link */
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-decoration var(--transition-fast);
+  display: inline-block;
+  font-weight: var(--font-weight-semibold);
+}
+.formLinkStrong:hover {
+  color: var(--color-accent-blue-hover);
+  text-decoration: underline;
+}
+
+.signInText { /* Renamed from signUpText for context */
+  margin-top: var(--space-md);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}

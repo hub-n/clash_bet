@@ -1,0 +1,45 @@
+
+.leaderboardTable {
+  width: 100%;
+  background-color: hsla(0, 0%, 10%, 0.85);
+  border: 2px solid hsla(0, 0%, 20%, 0.7);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.3);
+  overflow: hidden;
+}
+
+.leaderboardHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  padding: var(--space-sm);
+  background-color: hsla(0, 0%, 20%, 0.7);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-default);
+  border-bottom: 2px solid hsla(0, 0%, 20%, 0.7); /* same as card border */
+  border-top-left-radius: var(--radius-lg);      /* rounded top left */
+  border-top-right-radius: var(--radius-lg);     /* rounded top right */
+  margin: 0; /* no margin to avoid gap */
+  box-sizing: border-box;
+}
+
+.leaderboardContent {
+  display: grid;
+  gap: 0;
+}
+
+.leaderboardRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  padding: var(--space-sm);
+  background-color: hsla(0, 0%, 15%, 0.85);
+  border-bottom: 1px solid hsla(0, 0%, 25%, 0.5);
+}
+
+.leaderboardRow:last-child {
+  border-bottom-left-radius: var(--radius-lg);      /* rounded top left */
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.leaderboardRow:hover {
+  background-color: hsla(0, 0%, 20%, 0.85);
+}

@@ -1,0 +1,174 @@
+/* Container for the amount input section */
+.amountInputContainer {
+  margin-top: 0.5rem;                  /* Medium top margin */
+  padding-top: var(--space-md);                 /* Medium top padding */
+  /* Muted border separator */
+  border-top: 1px solid hsla(0, 0%, 20%, 0.7);
+}
+
+/* Title for the amount input section */
+.amountInputTitle {
+  font-size: var(--font-size-lg);               /* Large font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  margin-bottom: var(--space-xs);             /* Extra small bottom margin */
+  color: var(--color-text-secondary);           /* Secondary text */
+  text-align: center;
+}
+
+/* Displaying info about the selected method */
+.methodInfo {
+  text-align: center;
+  font-size: var(--font-size-base);             /* Base font size */
+  color: var(--color-text-default);             /* Default text */
+  margin-bottom: var(--space-md);               /* Medium bottom margin */
+}
+/* Emphasize parts of the method info with blue accent */
+.methodInfo strong {
+  color: var(--color-accent-blue);              /* Blue accent for emphasis */
+  font-weight: var(--font-weight-medium);       /* Keep medium weight */
+}
+
+/* Standard form group spacing */
+.formGroup {
+  margin-bottom: var(--space-sm);               /* Small bottom margin */
+}
+
+/* Label specifically for the amount input */
+.amountLabel {
+  display: block;
+  margin-bottom: var(--space-xs);             /* Extra small bottom margin */
+  font-size: var(--font-size-sm);               /* Small font size */
+  font-weight: var(--font-weight-medium);       /* Medium weight */
+  color: var(--color-text-secondary);           /* Secondary text color for label */
+  text-align: center;                           /* Center the label */
+}
+
+/* The amount input field itself */
+.amountInput {
+  width: 100%;
+  max-width: 250px;                             /* Keep specific max-width */
+  margin: 0 auto;                               /* Center horizontally */
+  display: block;
+  padding: 0.75rem var(--space-sm);             /* Consistent padding */
+  /* Dark input background */
+  background-color: hsla(0, 0%, 8%, 0.85);
+  /* Muted border */
+  border: 1px solid hsla(0, 0%, 30%, 0.8);
+  border-radius: var(--radius-sm);             /* Small radius */
+  font-size: 1.2rem;                            /* Keep larger font for amount */
+  color: var(--color-text-default);             /* Default text color */
+  box-sizing: border-box;
+  text-align: center;                           /* Center text inside input */
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.amountInput::placeholder {
+    color: hsla(0, 0%, 50%, 0.8);               /* Muted placeholder */
+}
+
+.amountInput:focus {
+  border-color: var(--color-accent-blue);         /* Blue accent on focus */
+  outline: 0;
+   /* Blue focus ring derived from accent */
+  box-shadow: 0 0 0 3px hsla(213, 100%, 60%, 0.25);
+}
+
+/* Error message styling */
+.formError {
+  color: var(--color-accent-red);                 /* Red accent for errors */
+  font-size: var(--font-size-sm);               /* Small font size */
+  margin-top: var(--space-xs);                  /* Space above error */
+  margin-bottom: var(--space-sm);               /* Small bottom margin */
+  font-weight: var(--font-weight-medium);       /* Medium weight */
+  text-align: center;
+}
+
+/* Container for the action buttons */
+.formActions {
+  display: flex;
+  flex-direction: column;                       /* Stack vertically by default */
+  align-items: center;                          /* Center items horizontally */
+  gap: var(--space-xs);                         /* Extra small gap between buttons */
+  margin-top: var(--space-md);                  /* Medium top margin */
+}
+
+/* Base styling for buttons in this component */
+/* Apply consistent action button base style */
+.actionButton {
+  padding: 0.8rem var(--space-md);              /* Consistent padding */
+  font-size: var(--font-size-sm);               /* Small font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  border: 1px solid transparent;                /* Base transparent border */
+  border-radius: var(--radius-md);             /* Medium radius */
+  cursor: pointer;
+  text-transform: uppercase;                    /* Uppercase text */
+  letter-spacing: 0.5px;                        /* Letter spacing */
+  box-shadow: var(--shadow-button);            /* Apply button shadow */
+   /* Use transition variables */
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-transform),
+    opacity var(--transition-fast);
+  /* Width constraints specific to this layout */
+  min-width: 200px;                             /* Keep specified min-width */
+  width: 100%;                                  /* Full width within constraints */
+  max-width: 280px;                             /* Keep specified max-width */
+}
+
+.actionButton:hover {
+  opacity: 0.95;                               /* Consistent hover opacity */
+  box-shadow: var(--shadow-button-hover);       /* Apply hover shadow */
+}
+
+.actionButton:active {
+  transform: scale(0.97);                      /* Consistent active scale */
+  opacity: 1;
+  box-shadow: var(--shadow-button-active);      /* Apply active shadow */
+}
+
+/* --- Specific Button Styles --- */
+
+/* Confirm Button - Use Red Accent (Primary Action) */
+.confirmButton {
+  /* Inherits base styles from .actionButton */
+  background-color: var(--color-accent-red);       /* Red accent */
+  color: var(--color-text-on-accent-bg);        /* Text for accents */
+  border-color: var(--color-accent-red);          /* Match border */
+}
+.confirmButton:hover {
+  background-color: var(--color-accent-red-hover); /* Red hover */
+  border-color: var(--color-accent-red-hover);   /* Match hover border */
+}
+
+/* Back Button - Use Blue Accent (Secondary/Navigational Action) */
+.backButton {
+  /* Inherits base styles from .actionButton */
+  background-color: var(--color-accent-blue);      /* Blue accent */
+  color: var(--color-text-on-accent-bg);       /* Text for accents */
+  border-color: var(--color-accent-blue);         /* Match border */
+}
+.backButton:hover {
+  background-color: var(--color-accent-blue-hover);/* Blue hover */
+  border-color: var(--color-accent-blue-hover);  /* Match hover border */
+}
+
+/* Cancel Button - Use muted style */
+.cancelButton {
+ /* Inherits base styles from .actionButton */
+  background-color: hsla(0, 0%, 25%, 1);        /* Dark grey background */
+  color: var(--color-text-secondary);           /* Secondary text */
+  border-color: hsla(0, 0%, 33%, 1);            /* Slightly lighter border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);        /* Custom subtle shadow */
+}
+.cancelButton:hover {
+  background-color: hsla(0, 0%, 33%, 1);        /* Lighter grey on hover */
+  border-color: hsla(0, 0%, 40%, 1);            /* Even lighter border */
+  color: var(--color-text-default);             /* Default text on hover */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);       /* Slightly larger hover shadow */
+}
+.cancelButton:active {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);        /* Subtle active shadow */
+}

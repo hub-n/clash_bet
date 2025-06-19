@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timer {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(18, 30px);
+  grid-template-rows: repeat(14, 30px);
+  gap: 2px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cell.revealed {
+  background-color: #ddd;
+  color: black;
+  cursor: default;
+}
+
+.gameOver {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+}

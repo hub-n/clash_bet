@@ -1,0 +1,135 @@
+.leaderboardContainer {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+.pageTitle {
+  font-size: var(--font-size-title-main);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-default);
+  text-align: center;
+  margin-bottom: var(--space-xs);
+}
+
+.gameSelectionSection {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs); /* Reduced gap */
+  flex-wrap: wrap;
+  padding: var(--space-xs) 0; /* Reduced padding */
+}
+
+.leaderboardSection {
+  margin-top: var(--space-lg);
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Minimum width set */
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  scale: 1.3;
+}
+
+.paginationButton {
+  background-color: hsla(0, 0%, 10%, 0.85);
+  border: 2px solid hsla(0, 0%, 20%, 0.7);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs) var(--space-md);
+  color: var(--color-text-default);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+  background-color: hsla(0, 0%, 20%, 0.85);
+  transform: scale(1.05);
+}
+
+.paginationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-md);
+}
+
+/* --- Styles for View Toggle --- */
+.viewToggleContainer {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.toggleButton {
+  background-color: hsla(0, 0%, 12%, 0.85);
+  border: 2px solid hsla(0, 0%, 22%, 0.7);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xs) var(--space-md);
+  color: var(--color-text-default);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.toggleButton:hover:not(:disabled) {
+  background-color: hsla(0, 0%, 22%, 0.85);
+  border-color: hsla(0, 0%, 30%, 0.7);
+  transform: scale(1.05);
+}
+
+.toggleButtonActive {
+  background-color: hsla(0, 0%, 25%, 0.9);
+  border-color: hsla(0, 0%, 35%, 0.8);
+}
+
+.toggleButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Style for Graph Placeholder --- */
+.graphPlaceholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  width: 100%;
+  border: 2px dashed hsla(0, 0%, 30%, 0.7);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-secondary);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+/* --- Style for No Data Message (when table is empty) --- */
+.noDataMessage {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-md);
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorMessage {
+  color: red; /* Or your theme's error color */
+  text-align: center;
+  padding: var(--space-md);
+}

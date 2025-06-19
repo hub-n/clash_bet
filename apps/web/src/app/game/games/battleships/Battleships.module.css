@@ -1,0 +1,321 @@
+/* === Main Container === */
+.battleshipsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+}
+
+/* === Messages (Loading, Game Over) === */
+.loadingMessage,
+.gameOverMessage {
+  padding: 20px 25px;
+  background-color: hsla(0, 30%, 9%, 0.1);
+  border: 2px solid hsla(0, 0%, 20%, 0.5);
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  color: var(--color-text-default);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gameOverMessage {
+  border-left: 5px solid var(--cw-blue-accent);
+}
+
+/* === Buttons === */
+.resetButton,
+.controlButton,
+.confirmButton,
+.resetButtonBottom {
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.resetButton:hover,
+.controlButton:hover,
+.confirmButton:hover,
+.resetButtonBottom:hover {
+  transform: translateY(-1px);
+}
+.resetButton:active,
+.controlButton:active,
+.confirmButton:active,
+.resetButtonBottom:active {
+  transform: translateY(0px);
+}
+
+.resetButton {
+  background-color: var(--cw-red-accent);
+}
+.resetButton:hover {
+  background-color: var(--cw-red-accent-hover);
+}
+
+/* === Game Boards Area === */
+.gameBoards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.boardSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.boardSection h2 {
+  color: var(--cw-text-secondary);
+  font-size: 1.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.board {
+  display: grid;
+  border: 2px solid var(--cw-border-color);
+  width: 320px;
+  height: 320px;
+  background-color: hsla(0, 30%, 9%, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* === Cells === */
+.cell {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--cw-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em; /* This will be inherited by the ::after emoji */
+  cursor: pointer;
+  background-color: var(--cw-dark-bg);
+  color: var(--cw-text-primary);
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  position: relative;
+}
+
+.cell:hover:not(:disabled) {
+  background-color: var(--cw-border-color);
+  border-color: var(--cw-blue-accent);
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Cell States */
+.empty {}
+
+.ship {
+  background-color: #555565;
+}
+
+.hit::after,
+.miss::after,
+.sunk::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1; /* Prevents potential extra space due to line-height */
+}
+
+.hit {
+  background-color: var(--cw-warning-color);
+  color: #000;
+}
+.hit::after {
+  content: "🔥";
+}
+
+.miss {
+  background-color: var(--cw-blue-accent);
+  color: #fff;
+}
+.miss::after {
+  content: "💧";
+}
+
+.sunk {
+  background-color: #6b0000;
+  color: var(--cw-text-primary);
+}
+.sunk::after {
+  content: "☠️";
+}
+
+/* === Turn Indicator === */
+.turnIndicator {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 20px;
+  color: var(--cw-blue-accent);
+  padding: 10px 20px;
+  background-color: var(--cw-panel-bg);
+  border-radius: 6px;
+  border: 1px solid var(--cw-border-color);
+}
+
+/* === Ship Placement Controls === */
+.shipPlacementControls {
+  background-color: hsla(0, 30%, 9%, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 25px 25px;
+  border-radius: 8px;
+  border: 2px solid hsla(0, 0%, 20%, 0.5);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.3), 0 1px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.shipPlacementControls h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: var(--cw-text-primary);
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.shipListInstruction {
+  font-size: 0.95em;
+  color: var(--cw-text-secondary);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.shipSelectionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.shipSelectItem {
+  padding: 10px 15px;
+  border: 1px solid var(--cw-border-color);
+  background-color: var(--cw-border-color);
+  color: var(--cw-text-primary);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
+  font-weight: 500;
+}
+
+.shipSelectItem:hover:not(:disabled):not(.selected) {
+  background-color: var(--cw-dark-bg);
+  border-color: var(--cw-blue-accent);
+  transform: translateY(-1px);
+}
+
+.shipSelectItem.selected {
+  background-color: var(--cw-blue-accent);
+  color: white;
+  border-color: var(--cw-blue-accent-hover);
+  font-weight: 600;
+}
+
+.shipSelectItem.placed {
+  background-color: var(--cw-panel-bg);
+  color: var(--cw-text-secondary);
+  border-color: var(--cw-border-color);
+  cursor: not-allowed;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+.shipSelectItem.placed:hover {
+   background-color: var(--cw-panel-bg);
+   transform: none;
+}
+
+/* === Orientation and Control Buttons within Placement === */
+.orientationControls {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.controlButton {
+  background-color: var(--cw-blue-accent);
+  padding: 10px 20px;
+}
+.controlButton:hover {
+  background-color: var(--cw-blue-accent-hover);
+}
+
+.confirmButton {
+  background-color: var(--cw-success-color);
+}
+
+.confirmButton:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+.confirmButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.confirmButton:disabled {
+  background-color: var(--cw-panel-bg);
+  border: 1px solid var(--cw-border-color);
+  color: var(--cw-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.resetButtonBottom {
+  margin-top: 10px;
+  background-color: var(--cw-red-accent);
+}
+.resetButtonBottom:hover {
+  background-color: var(--cw-red-accent-hover);
+}
+
+/* === Cell Preview States (During Ship Placement) === */
+.board:not(.opponent-board) .cell:not(.ship):not(:disabled):hover {
+  /* Covered by general .cell:hover */
+}
+
+.cell.previewValid {
+  background-color: rgba(34, 197, 94, 0.3);
+  border: 1px dashed var(--cw-success-color);
+}
+
+.cell.previewInvalid {
+  background-color: rgba(239, 68, 68, 0.3);
+  border: 1px dashed var(--cw-red-accent);
+}
+
+.cell.ship.previewValid,
+.cell.ship.previewInvalid {
+   border-style: dashed;
+}
+.cell.ship.previewValid {
+   border-color: var(--cw-success-color);
+}
+.cell.ship.previewInvalid {
+   border-color: var(--cw-red-accent);
+}

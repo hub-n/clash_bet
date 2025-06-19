@@ -1,0 +1,409 @@
+.loadingPage {
+  display: flex;
+  flex-direction: column; /* Allow for a spinner or more text */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--cw-dark-bg);
+  font-size: 1.6rem; /* Slightly larger */
+  color: var(--cw-text-secondary);
+  font-family: var(--cw-font-family);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* You can add a simple spinner here if desired */
+.loadingPage::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-top: 1.5rem;
+  border-radius: 50%;
+  border: 4px solid var(--cw-border-color);
+  border-top-color: var(--cw-blue-accent);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.waitroomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.0rem 2.5rem 2.5rem; /* More vertical padding */
+  max-width: 680px; /* Slightly wider */
+  margin: 3rem auto;
+  background-color: var(--card-background-color);
+  color: var(--cw-text-primary);
+  border-radius: 10px; /* Slightly more pronounced radius */
+  border: 1px solid var(--cw-border-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.loading { /* For in-component loading states */
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1.3rem;
+  color: var(--cw-text-secondary);
+  font-family: var(--cw-font-family);
+  min-height: 200px; /* Ensure it takes some space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorContainer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  max-width: 580px;
+  margin: 4rem auto; /* More margin */
+  background-color: var(--cw-panel-bg);
+  color: var(--cw-text-primary);
+  border-radius: 10px;
+  border: 1px solid var(--cw-red-accent);
+  box-shadow: 0 6px 18px rgba(var(--cw-red-accent), 0.2); /* Subtle red glow */
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--cw-red-accent);
+}
+
+.errorContainer h2 {
+  color: var(--cw-red-accent);
+  margin-bottom: 0.75rem;
+  font-family: var(--cw-font-family-sans);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.errorContainer p {
+  color: var(--cw-text-secondary); /* Slightly dimmer for error details */
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.errorContainer .button {
+    /* It will inherit .button, .secondaryButton will apply blue style */
+}
+
+
+.header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--cw-border-color);
+  padding-bottom: 2rem; /* More space */
+}
+
+.header h1 {
+  font-size: 2.6rem; /* Larger title */
+  color: var(--cw-text-primary);
+  font-weight: 700; /* Bolder */
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem; /* Space before description */
+}
+
+.gameDescription {
+  font-size: 1rem;
+  color: var(--cw-text-secondary);
+  max-width: 80%;
+  margin: 0 auto 0.5rem auto; /* Add some bottom margin */
+  line-height: 1.6;
+  font-style: italic; /* Optional: make description italic */
+}
+
+.settingsSection {
+  width: 100%;
+  margin-bottom: 2rem; /* Slightly less margin if validation text is present */
+  padding: 0 1rem;
+}
+
+.inputRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.25rem; /* More gap */
+  margin-bottom: 0.5rem; /* Space before potential validation error */
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allow groups to grow if needed */
+  max-width: 200px; /* Max width for bet/fluctuation */
+}
+.inputGroup:first-child {
+  align-items: flex-end; /* Align label to right for "Base Bet" */
+}
+.inputGroup:last-child {
+  align-items: flex-start; /* Align label to left for "Range" */
+}
+.inputGroup .label {
+  width: 100%; /* Ensure label takes full width for text-align */
+}
+.inputGroup:first-child .label {
+  text-align: right;
+  padding-right: 0.5rem; /* Space from input */
+}
+.inputGroup:last-child .label {
+  text-align: left;
+  padding-left: 0.5rem; /* Space from input */
+}
+
+
+.label {
+  font-size: 0.9rem; /* Slightly larger label */
+  color: var(--cw-text-secondary);
+  margin-bottom: 0.6rem; /* More space below label */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.inputField {
+  padding: 0.85rem 1.1rem; /* More padding */
+  border: 1px solid var(--cw-border-color);
+  border-radius: 5px; /* Slightly more rounded */
+  font-size: 1.1rem; /* Larger input text */
+  font-family: var(--cw-font-family);
+  color: var(--cw-text-primary);
+  background-color: var(--cw-input-bg);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  width: 100%; /* Make input take full width of its group */
+}
+.inputField::placeholder {
+  color: #6c757d; /* Darker placeholder */
+  opacity: 0.8;
+}
+.inputField:focus {
+  border-color: var(--cw-blue-accent);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.3); /* Slightly larger focus ring */
+}
+
+.betInput {
+  /* width: 180px; No longer fixed width, uses flex-grow in group */
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.fluctuationInput {
+  /* width: 120px; No longer fixed width */
+  text-align: right;
+}
+
+.plusMinusSign {
+  font-size: 2.2rem; /* More prominent */
+  color: var(--cw-text-secondary);
+  margin-bottom: 0.7rem; /* Align with input fields baseline */
+  font-weight: 400; /* Slightly bolder */
+  font-family: var(--cw-font-family-sans);
+  align-self: flex-end; /* Ensure it aligns with bottom of inputs */
+  padding: 0 0.25rem; /* Some horizontal padding */
+}
+
+.validationErrorText {
+  color: var(--cw-red-accent);
+  font-family: var(--cw-font-family-sans);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(211, 47, 47, 0.1);
+  border: 1px solid rgba(211, 47, 47, 0.3);
+  border-radius: 4px;
+  /* Add some margin-bottom if bettingRangeInfo is directly below */
+  margin-bottom: 1rem;
+}
+
+.bettingRangeInfo {
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--cw-text-secondary);
+  font-family: var(--cw-font-family-sans);
+  background-color: rgba(var(--cw-blue-accent-rgb, 25, 118, 210), 0.1); /* Subtle blue background */
+  border: 1px solid rgba(var(--cw-blue-accent-rgb, 25, 118, 210), 0.3);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.actionsSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack buttons on smaller screens */
+  align-items: center; /* Center buttons when stacked */
+  gap: 1rem; /* Gap between buttons */
+  margin-top: 2rem; /* More space above actions */
+  padding-top: 2rem; /* More space */
+  border-top: 1px solid var(--cw-border-color);
+}
+
+@media (min-width: 500px) { /* Side-by-side buttons on larger screens */
+  .actionsSection {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+.button {
+  padding: 0.9rem 2rem; /* More padding */
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: var(--cw-font-family-sans);
+  font-weight: 600;
+  letter-spacing: 0.75px; /* More spacing */
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  min-width: 180px; /* Minimum width for buttons */
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+}
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+.button:active {
+  transform: translateY(0px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.button:disabled {
+  background-color: #555 !important; /* Darker grey for disabled */
+  color: #999 !important;
+  border-color: #555 !important;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.primaryButton {
+  background-color: var(--cw-red-accent);
+  color: white;
+  border-color: var(--cw-red-accent);
+}
+.primaryButton:hover:not(:disabled) {
+  background-color: var(--cw-red-accent-hover);
+  border-color: var(--cw-red-accent-hover);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: var(--cw-blue-accent);
+  border: 1px solid var(--cw-blue-accent);
+}
+.secondaryButton:hover:not(:disabled) {
+  background-color: var(--cw-blue-accent);
+  color: white;
+  border-color: var(--cw-blue-accent);
+}
+
+.inputField::-webkit-outer-spin-button,
+.inputField::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inputField[type=number] {
+  -moz-appearance: textfield;
+}
+
+.matchFoundInfo {
+  border: 2px solid #4CAF50; /* Green border/outline */
+  background-color: var(--card-background-color); /* Very light, almost transparent green background */
+  padding: 20px 50px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Optional: subtle shadow */
+}
+
+.matchFoundInfo h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--cw-text-primary); /* A strong, clear green for the heading */
+  font-size: 1.6em; /* Slightly larger heading */
+}
+
+.matchFoundInfo p {
+  margin-bottom: 8px;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.finalBetAmountLabel { /* For the "You'll be playing for:" text */
+  display: block;
+  margin-top: 15px;
+  font-size: 1.1em;
+  color: var(--cw-text-secondary);
+}
+
+.finalBetAmountValue { /* For the actual bet amount */
+  display: block; /* Ensures it takes its own space */
+  font-size: 2em;  /* Significantly larger */
+  font-weight: bold;
+  color: #0D47A1; /* Using a contrasting, strong color like a deep blue or a very dark green */
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+/* Ensure buttons within matchFoundInfo still look good */
+.matchFoundInfo .button.primaryButton {
+  background-color: #28a745; /* A matching green or your primary button color */
+  border-color: #28a745;
+}
+.matchFoundInfo .button.primaryButton:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.loadingSpinnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #09f; /* Or your primary color */
+  animation: spin 1s ease infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.findingMatchText {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.roomSearchErrorText {
+  color: #D8000C; /* Standard error red */
+  background-color: #FFD2D2; /* Light red background */
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #D8000C;
+  text-align: center;
+}

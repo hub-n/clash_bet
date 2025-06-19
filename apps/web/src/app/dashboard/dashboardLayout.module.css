@@ -1,0 +1,42 @@
+.dashboardLayoutRoot {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.mainContentWrapper {
+  flex-grow: 1;
+  padding-left: 80px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.topBar {
+  /* width: 100%; */
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 80px; /* Align with parent padding */
+  right: 0;
+  background-color: transparent;
+  backdrop-filter: none;
+  z-index: 900; /* Keep z-index so it's above content but below modals etc. */
+  gap: 1.2rem; /* This space is between the BudgetStatusDisplay and UserProfileButton */
+  pointer-events: none;
+}
+
+.contentArea {
+  padding: var(--space-lg);
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This handles horizontal centering of flex items */
+}

@@ -1,0 +1,38 @@
+.controlsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.button {
+  min-width: 130px;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  border-radius: var(--radius-lg);
+  background-color: hsla(0, 0%, 10%, 0.85);  border: 2px solid hsla(0, 0%, 20%, 0.7);
+  padding: var(--space-sm);
+  font-size: 3rem;
+  text-align: center;
+  box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.3);
+  transition: border-color 0.2s ease-out;
+}
+
+.button:not(:disabled):hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px hsla(213, 50%, 30%, 0.3);
+  border-color: var(--color-accent-blue);
+}
+
+.button.selected {
+  border: 2px solid var(--color-accent-blue);
+  background-color: hsla(213, 100%, 30%, 0.2);
+}
+
+.button:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}

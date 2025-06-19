@@ -1,0 +1,85 @@
+.displayContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 1rem;
+}
+
+.playersContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Changed from space-between to center */
+  align-items: center;
+  width: 80%;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  margin-top: 1rem;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Changed from space-between to center */
+  align-items: center;
+  width: 100%;
+}
+
+.statusMessage {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.roundResult {
+  font-size: 1.25rem;
+  text-align: center;
+  font-style: italic;
+  left: 0;
+  right: 0;
+  height: 2rem; /* Fixed height for the container, even when empty */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.player {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.emoji {
+  font-size: 5rem; /* Increased from 4rem to 5rem */
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.name {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.scoreBoard {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem clamp(0rem, 2vw, 2rem);
+  background-color: rgba(0, 0, 0, 0.05);
+  margin: 1rem 0;
+}

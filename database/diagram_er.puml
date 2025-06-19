@@ -1,0 +1,162 @@
+@startuml
+' Define entity "Users"
+entity "Users" as Users {
+  * UserID : int <<PK>>
+  * Username : varchar
+  * Email : varchar
+  * UserFullName : varchar
+  * UserBio : varchar
+  * PasswordHash : varchar
+  * CreatedAt : datetime
+  * UpdatedAt : datetime
+  * Role : varchar
+}
+
+' Define entity "Wallets"
+entity "Wallets" as Wallets {
+  * WalletID : int <<PK>>
+  * UserID : int <<FK>>
+  * Balance : decimal
+  * PendingBalance : decimal
+  * CreatedAt : datetime
+  * UpdatedAt : datetime
+}
+
+' Define entity "Transactions"
+entity "Transactions" as Transactions {
+  * TransactionID : int <<PK>>
+  * UserID : int <<FK>>
+  * MatchID : int <<FK>>
+  * Amount : decimal
+  * TransactionType : varchar   ' e.g., deposit, withdrawal, entry fee, payout, commission
+  * Status : varchar            ' e.g., pending, completed, failed
+  * Timestamp : datetime
+  * Remarks : text
+}
+
+' Define entity "GameTypes"
+entity "GameTypes" as GameTypes {
+  * GameTypeID : int <<PK>>
+  * GameName : varchar
+  * Description : text
+  * Config : json   ' Additional configuration details in JSON format
+}
+
+' Define entity "Matches"
+entity "Matches" as Matches {
+  * MatchID : int <<PK>>
+  * GameTypeID : int <<FK>>      ' Reference to the GameTypes table
+  * Player1ID : int <<FK>>
+  * Player2ID : int <<FK>>
+  * EntryFee : decimal
+  * MatchState : varchar         ' e.g., scheduled, ongoing, completed, cancelled
+  * WinnerID : int <<FK>>
+  * StartTime : datetime
+  * EndTime : datetime
+  * Score : json
+}
+
+' Define entity "GameMoves"
+entity "GameMoves" as GameMoves {
+  * LogID : int <<PK>>
+  * MatchID : int <<FK>>
+  * PlayerID : int <<FK>>
+  * MoveDetails : text  ' Could also be stored as JSON
+  * Timestamp : datetime
+}
+
+' Define entity "PlayerStatistics"
+entity "PlayerStatistics" as PlayerStatistics {
+  * StatID : int <<PK>>
+  * UserID : int <<FK>>
+  * Wins : int
+  * Losses : int
+  * Draws : int
+  * WinRate : decimal
+  * CurrentStreak : int
+  * EloRating : decimal
+  * LastUpdated : datetime
+}
+
+' Define entity "PaymentMethods"
+entity "PaymentMethods" as PaymentMethods {
+  * PaymentMethodID : int <<PK>>
+  * UserID : int <<FK>>
+  * PaymentType : varchar    ' e.g., credit card, digital wallet
+  * TokenizedInfo : text     ' secure reference or masked data
+  * CreatedAt : datetime
+}
+
+' Define entity "GameTypeDailySummary"
+entity "GameTypeDailySummary" as GameTypeDailySummary {
+  * SummaryID : int <<PK>>
+  * GameTypeID : int <<FK>>
+  * SummaryDate : date
+  * MatchesPlayedCount : int
+  * UniquePlayerCount : int
+  * TotalEntryFeesCollected : decimal
+  * TotalPayoutsMade : decimal
+  * AverageMatchDurationSeconds : int
+}
+
+' Define entity "PlatformDailySummary"
+entity "PlatformDailySummary" as PlatformDailySummary {
+  * SummaryDate : date <<PK>>
+  * NewUsersCount : int
+  * ActiveUsersCount : int  ' Users who played a match or made a transaction
+  * TotalMatchesPlayed : int
+  * TotalTransactionVolume : decimal ' Sum of absolute transaction amounts
+  * NetRevenue : decimal ' e.g., commissions + entry_fees - payouts
+}
+
+' Define entity "UserLoginLog"
+entity "UserLoginLog" as UserLoginLog {
+  * LoginLogID : int <<PK>>
+  * UserID : int <<FK>>
+  * LoginTimestamp : datetime
+  * LogoutTimestamp : datetime (nullable)
+  * IPAddress : varchar
+  * UserAgent : text
+  * SessionDurationSeconds : int (nullable, calculated on logout)
+}
+
+' Define relationships
+
+' Users have one Wallet (1:1)
+Users ||--|| Wallets : "owns"
+
+' Users perform many Transactions (1:N)
+Users ||--o{ Transactions : "performs"
+
+' Each Transaction can be linked to a Match (0..1:N)
+Matches ||--o{ Transactions : "related to"
+
+' A Match involves two Users as players:
+Users ||--o{ Matches : "as Player1"
+Users ||--o{ Matches : "as Player2"
+
+' The Winner of a Match is a User:
+Users ||--o{ Matches : "wins"
+
+' Matches have many GameMoves (1:N)
+Matches ||--o{ GameMoves : "records moves in"
+
+' Each GameMove is associated with a Player (User):
+Users ||--o{ GameMoves : "makes"
+
+' Users have one set of PlayerStatistics (1:1)
+Users ||--|| PlayerStatistics : "has"
+
+' Users can register multiple PaymentMethods (1:N)
+Users ||--o{ PaymentMethods : "registers"
+
+' GameTypes defines Matches (1:N)
+GameTypes ||--o{ Matches : "defines"
+
+' GameTypeDailySummary is for a GameType
+GameTypes ||--o{ GameTypeDailySummary : "has daily summary"
+
+' UserLoginLog records logins for a User
+Users ||--o{ UserLoginLog : "logs"
+
+@enduml

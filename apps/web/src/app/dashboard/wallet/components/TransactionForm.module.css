@@ -1,0 +1,196 @@
+/* Container for the form, potentially within another card */
+.transactionFormContainer {
+  margin-top: 0.5rem;                  /* Small top margin */
+  padding-top: var(--space-md);                 /* Medium top padding */
+  /* Separator using muted border color */
+  border-top: 1px solid hsla(0, 0%, 20%, 0.7);
+}
+
+.formTitle {
+  font-size: var(--font-size-lg);               /* Large font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  margin-bottom: var(--space-sm);               /* Small bottom margin */
+  color: var(--color-text-secondary);           /* Secondary text color */
+  text-align: center;
+}
+
+.formInfo {
+    font-size: var(--font-size-sm);               /* Small font size */
+    color: var(--color-text-secondary);           /* Secondary text */
+    margin-bottom: var(--space-sm);               /* Small bottom margin */
+    font-weight: var(--font-weight-medium);       /* Medium weight */
+}
+
+.formGroup {
+  margin-bottom: var(--space-sm);               /* Small bottom margin */
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: var(--space-xs);             /* Extra small bottom margin */
+  font-size: var(--font-size-sm);               /* Small font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold labels */
+  color: var(--color-text-secondary);           /* Secondary text for labels */
+}
+
+/* --- Input Field Styling --- */
+.formInput {
+  width: 100%;
+  padding: 0.75rem var(--space-sm);             /* Consistent padding */
+  /* Dark input background */
+  background-color: hsla(0, 0%, 8%, 0.85);
+  /* Muted border */
+  border: 1px solid hsla(0, 0%, 30%, 0.8);
+  border-radius: var(--radius-sm);             /* Small radius */
+  font-size: var(--font-size-base);             /* Base font size */
+  color: var(--color-text-default);             /* Default text color */
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.formInput::placeholder {
+    color: hsla(0, 0%, 50%, 0.8);               /* Muted placeholder */
+}
+
+.formInput:focus {
+  border-color: var(--color-accent-blue);         /* Blue accent on focus */
+  outline: 0;
+   /* Blue focus ring derived from accent */
+  box-shadow: 0 0 0 3px hsla(213, 100%, 60%, 0.25);
+}
+
+/* Style row for adjacent inputs like expiry/cvc */
+.formRow {
+    display: flex;
+    gap: var(--space-sm);                         /* Small gap */
+}
+.formRow .formGroup {
+    flex: 1;
+    /* Ensure margin-bottom applies correctly within the row */
+    margin-bottom: var(--space-sm);
+}
+/* Remove bottom margin from the row container itself if groups have it */
+.formRow:has(.formGroup) {
+    margin-bottom: 0;
+}
+
+
+/* --- Security Notice Styling --- */
+.securityNotice {
+    font-size: var(--font-size-sm);               /* Small font size */
+    color: var(--color-text-default);             /* Default text (readable on red bg) */
+    /* Semi-transparent Red background using accent */
+    background-color: hsla(0, 79%, 59%, 0.15); /* hsla derived from --color-accent-red */
+    border: 1px solid var(--color-accent-red);      /* Red accent border */
+    padding: var(--space-xs) var(--space-sm);       /* Small padding */
+    border-radius: var(--radius-sm);             /* Small radius */
+    margin-top: var(--space-xs);                  /* Extra small top margin */
+    margin-bottom: var(--space-md);               /* Medium bottom margin */
+}
+
+/* --- Form Error Styling --- */
+.formError {
+  color: var(--color-accent-red);                 /* Red accent for errors */
+  font-size: var(--font-size-sm);               /* Small font size */
+  /* Adjust margin - remove negative top margin if not needed */
+  margin-top: var(--space-xs);                  /* Add space above error */
+  margin-bottom: var(--space-sm);               /* Small bottom margin */
+  font-weight: var(--font-weight-medium);       /* Medium weight */
+  text-align: center;                           /* Center align error */
+}
+
+/* --- Form Actions (Button Container) --- */
+.formActions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);                         /* Small gap */
+  margin-top: var(--space-md);                  /* Medium top margin */
+}
+
+/* --- Base styles for form action buttons --- */
+/* Reuse consistent action button styling */
+.formActionButton {
+  padding: 0.8rem var(--space-md);              /* Consistent padding */
+  font-size: var(--font-size-sm);               /* Small font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  border: 1px solid transparent;                /* Base transparent border */
+  border-radius: var(--radius-md);             /* Medium radius */
+  cursor: pointer;
+  min-width: 150px;                             /* Consistent min-width */
+  text-transform: uppercase;                    /* Uppercase text */
+  letter-spacing: 0.5px;                        /* Letter spacing */
+  box-shadow: var(--shadow-button);            /* Apply button shadow */
+   /* Use transition variables */
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-transform),
+    opacity var(--transition-fast);
+}
+
+.formActionButton:hover {
+  opacity: 0.95;                               /* Consistent hover opacity */
+  box-shadow: var(--shadow-button-hover);       /* Apply hover shadow */
+}
+
+.formActionButton:active {
+  transform: scale(0.97);                      /* Consistent active scale */
+  opacity: 1;
+  box-shadow: var(--shadow-button-active);      /* Apply active shadow */
+}
+
+/* --- Specific Form Buttons --- */
+/* Submit Button - Use Red Accent (consistent with deposit) */
+.submitButton {
+  /* Inherits base styles from .formActionButton */
+  background-color: var(--color-accent-red);       /* Red accent */
+  color: var(--color-text-on-accent-bg);        /* Text for accents */
+  border-color: var(--color-accent-red);          /* Match border */
+}
+.submitButton:hover {
+  background-color: var(--color-accent-red-hover); /* Red hover */
+  border-color: var(--color-accent-red-hover);   /* Match hover border */
+}
+
+/* Cancel Button - Use muted style */
+.cancelButton {
+ /* Inherits base styles from .formActionButton */
+  background-color: hsla(0, 0%, 25%, 1);        /* Dark grey background */
+  color: var(--color-text-secondary);           /* Secondary text */
+  border-color: hsla(0, 0%, 33%, 1);            /* Slightly lighter border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);        /* Custom subtle shadow */
+}
+.cancelButton:hover {
+  background-color: hsla(0, 0%, 33%, 1);        /* Lighter grey on hover */
+  border-color: hsla(0, 0%, 40%, 1);            /* Even lighter border */
+  color: var(--color-text-default);             /* Default text on hover */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);       /* Slightly larger hover shadow */
+}
+.cancelButton:active {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);        /* Subtle active shadow */
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 600px) {
+   .formActions {
+       flex-direction: column;
+       align-items: stretch;
+       gap: var(--space-xs);                     /* Reduce gap */
+   }
+   .formActionButton {
+       width: 100%;
+       min-width: unset;                         /* Remove min-width */
+   }
+   /* Stack adjacent inputs */
+   .formRow {
+       flex-direction: column;
+       gap: 0;                                   /* Remove gap, rely on group margin */
+   }
+    /* Ensure form groups in rows still have margin */
+   .formRow .formGroup {
+       margin-bottom: var(--space-sm);
+   }
+}

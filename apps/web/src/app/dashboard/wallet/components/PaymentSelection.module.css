@@ -1,0 +1,154 @@
+/* --- Selection Area within a Card/Container --- */
+.selectionContainer {
+  /* Assuming this sits within a container like .walletContainer */
+  margin-top: 0.5rem;                  /* Use small spacing */
+  padding-top: var(--space-sm);                 /* Use small spacing */
+  /* Use the color part of card-border for subtle separation */
+  border-top: 1px solid hsla(0, 0%, 20%, 0.7);
+}
+
+.selectionTitle {
+  font-size: var(--font-size-lg);               /* Use large font size */
+  font-weight: var(--font-weight-semibold);     /* Use semibold weight */
+  margin-bottom: var(--space-sm);               /* Use small spacing */
+  color: var(--color-text-secondary);           /* Use secondary text color */
+  text-align: center;
+}
+
+/* --- List of Selectable Methods --- */
+.methodList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) 0;               /* Medium bottom margin */
+}
+
+.methodItem {
+  margin-bottom: var(--space-xs);             /* Extra small spacing between items */
+}
+
+/* Style for individual method 'buttons' (list items) */
+.methodButton {
+  display: block;
+  width: 100%;
+  padding: var(--space-xs) var(--space-sm);       /* Adjusted padding */
+  /* Slightly distinct dark background */
+  background-color: hsla(0, 0%, 15%, 0.85);
+   /* Muted border */
+  border: 1px solid hsla(0, 0%, 30%, 0.8);
+  border-radius: var(--radius-md);             /* Medium radius */
+  text-align: left;
+  font-size: var(--font-size-base);             /* Base font size for readability */
+  color: var(--color-text-secondary);           /* Start with secondary text color */
+  cursor: pointer;
+  /* Use transition variables */
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.methodButton:hover {
+  /* Lighter background on hover */
+  background-color: hsla(0, 0%, 20%, 0.9);
+  /* Slightly more prominent border */
+  border-color: hsla(0, 0%, 40%, 0.9);
+  /* Improve text contrast on hover */
+  color: var(--color-text-default);
+}
+
+/* --- Fallback Text --- */
+.noMethodsText {
+  text-align: center;
+  color: var(--color-text-secondary);           /* Secondary text color */
+  margin-bottom: var(--space-md);               /* Medium bottom margin */
+  font-style: italic;
+}
+
+/* --- Container for Main Action Buttons --- */
+.selectionActions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);                         /* Small gap */
+  margin-top: var(--space-sm);                  /* Small top margin */
+}
+
+/* --- Base styles for action buttons (Add, Cancel) --- */
+/* Apply consistency with previous module's action buttons */
+.actionButton {
+  padding: 0.8rem var(--space-md);              /* Consistent padding */
+  font-size: var(--font-size-sm);               /* Small font size */
+  font-weight: var(--font-weight-semibold);     /* Semibold weight */
+  border: 1px solid transparent;                /* Base transparent border */
+  border-radius: var(--radius-md);             /* Medium radius */
+  cursor: pointer;
+  min-width: 150px;                             /* Consistent min-width */
+  text-transform: uppercase;                    /* Uppercase text */
+  letter-spacing: 0.5px;                        /* Letter spacing */
+  box-shadow: var(--shadow-button);            /* Apply button shadow */
+   /* Use transition variables */
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-transform),
+    opacity var(--transition-fast);
+}
+
+.actionButton:hover {
+  opacity: 0.95;                               /* Consistent hover opacity */
+  box-shadow: var(--shadow-button-hover);       /* Apply hover shadow */
+}
+
+.actionButton:active {
+  transform: scale(0.97);                      /* Consistent active scale */
+  opacity: 1;
+  box-shadow: var(--shadow-button-active);      /* Apply active shadow */
+}
+
+/* --- Specific Action Buttons --- */
+/* Assuming 'Add' is a primary positive action, use Blue */
+.addButton {
+  /* Inherits structure from .actionButton */
+  background-color: var(--color-accent-blue);      /* Blue accent */
+  color: var(--color-text-on-accent-bg);       /* Text for accents */
+  border-color: var(--color-accent-blue);         /* Match border */
+}
+.addButton:hover {
+  background-color: var(--color-accent-blue-hover);/* Blue hover */
+  border-color: var(--color-accent-blue-hover);  /* Match hover border */
+}
+
+/* Cancel Button - use muted style consistent with previous module */
+.cancelButton {
+ /* Inherits structure from .actionButton */
+  background-color: hsla(0, 0%, 25%, 1);        /* Dark grey background */
+  color: var(--color-text-secondary);           /* Secondary text */
+  border-color: hsla(0, 0%, 33%, 1);            /* Slightly lighter border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);        /* Custom subtle shadow */
+}
+.cancelButton:hover {
+  background-color: hsla(0, 0%, 33%, 1);        /* Lighter grey on hover */
+  border-color: hsla(0, 0%, 40%, 1);            /* Even lighter border */
+  color: var(--color-text-default);             /* Default text on hover */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);       /* Slightly larger hover shadow */
+}
+.cancelButton:active {
+  /* Ensure active state retains appropriate shadow */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);        /* Subtle active shadow */
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 600px) {
+   .selectionActions {
+       flex-direction: column;
+       align-items: stretch;
+       gap: var(--space-xs);                     /* Reduce gap for column layout */
+   }
+   /* Allow buttons to take full width */
+   .actionButton {
+       width: 100%;
+       min-width: unset;
+   }
+}
